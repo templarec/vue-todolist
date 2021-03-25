@@ -105,6 +105,15 @@ var app = new Vue ({
 				}
 			})
 			console.log(this.todo);
+		},
+		elimina: function (index) {
+			let rmvTemp = this.todo.findIndex( i => i.id === index);
+			this.todo.splice(rmvTemp,1);
+
+
+
+
+
 		}
 	}
 });

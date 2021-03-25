@@ -27,7 +27,7 @@
 					<span><input v-model="editTodo" @keyup.enter="edit(item.id)" :class="(item.flag === false) ? 'nascosto': ''" type="text" ></span>
 					<span @click="modifica(item.id)" class="icons"><i v-if="item.status === false" class="fas fa-pencil-alt"></i></span>
 					<span @click="completato(item.id)" class="icons"><i v-if="item.status === false" class="fas fa-check"></i></span>
-					<span class="icons"></span>
+					<span @click="elimina(item.id)" class="icons"><i v-if="item.status === true" class="far fa-trash-alt"></i></span>
 				</li>
 			</ul>
 			<div class="input">
