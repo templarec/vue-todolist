@@ -50,5 +50,9 @@ i[class*="fa-"] {
 	width: 100%;
 	outline: none;
 	font-size: 22px;
-
+}
+.completato {
+	color: #999;
+	text-decoration: line-through;
+	font-style: italic;
 }

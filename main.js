@@ -45,8 +45,12 @@ var app = new Vue ({
 			}
 		]
 	},
-	component: {
-
+	computed: {
+		todoComputed: function () {
+			let done = this.todo.filter((done) => done.status === true);
+			let undone = this.todo.filter((undone) => undone.status === false);
+			return [...undone,...done];
+		}
 	},
 	methods: {
 		aggiunta: function () {
@@ -57,6 +61,15 @@ var app = new Vue ({
 			}
 			this.todo.push(tempObj);
 			this.add = '';
+			console.log(this.todo);
+		},
+		completato: function (index) {
+			console.log(index);
+			this.todo.forEach(function (item) {
+				if (item.id === index) {
+					item.status = true;
+				}
+			})
 			console.log(this.todo);
 		}
 	}

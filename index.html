@@ -22,10 +22,10 @@
 		<div class="to-do">
 			<h2>Cose da fare</h2>
 			<ul>
-				<li v-for="item in todo">
-					<span>{{item.titolo}}</span>
-					<span class="icons"><i class="fas fa-pencil-alt"></i></span>
-					<span class="icons"><i class="fas fa-check"></i></span>
+				<li v-for="item in todoComputed">
+					<span :class="(item.status === true) ? 'completato' : '' ">{{item.titolo}}</span>
+					<span class="icons"><i v-if="item.status === false" class="fas fa-pencil-alt"></i></span>
+					<span @click="completato(item.id)" class="icons"><i v-if="item.status === false" class="fas fa-check"></i></span>
 					<span class="icons"></span>
 				</li>
 			</ul>
