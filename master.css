@@ -1,0 +1,47 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+#root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.to-do {
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px;
+	background-color: #93ca74;
+	padding: 30px;
+}
+.to-do ul {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+
+}
+.to-do li {
+	list-style: none;
+	display: flex;
+	justify-items: flex-start;
+	border-bottom: 1px solid #c6e3b5;
+	margin: 5px 0;
+
+}
+i[class*="fa-"] {
+	font-size: 22px;
+}
+.to-do ul li span > .fas {
+	padding-right: 3px;
+}
+.to-do ul li span:nth-child(1) {
+	padding-right: 10px;
+	font-size: 22px;
+}
+.to-do ul li span:nth-child(2) {
+	margin-left: auto;
+}
