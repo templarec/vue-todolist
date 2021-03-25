@@ -23,13 +23,38 @@
 			<h2>Cose da fare</h2>
 			<ul>
 				<li v-for="item in todoComputed">
-					<span v-if="item.flag === false" :class="(item.status === true) ? 'completato' : '' ">{{item.titolo}}</span>
-					<span><input v-model="editTodo" @keyup.enter="edit(item.id)" :class="(item.flag === false) ? 'nascosto': ''" type="text" ></span>
-					<span @click="modifica(item.id)" class="icons"><i v-if="item.status === false" class="fas fa-pencil-alt"></i></span>
-					<span @click="completato(item.id)" class="icons"><i v-if="item.status === false" class="fas fa-check"></i></span>
-					<span @click="elimina(item.id)" class="icons"><i v-if="item.status === true" class="far fa-trash-alt"></i></span>
+					<!--v-if: visualizza se non siamo in edit
+					:class prende classe completato se stato è true -->
+					<span v-if="item.flag === false"
+					      :class="(item.status === true) ? 'completato' : '' ">
+						{{item.titolo}}
+					</span>
+
+					<span> <!--input di modifica-->
+						<!--prende classe nascosta se non siamo in edit-->
+						<input v-model="editTodo"
+						       @keyup.enter="edit(item.id)"
+						       v-bind:placeholder="item.titolo"
+						       :class="(item.flag === false) ? 'nascosto': ''" type="text" >
+					</span>
+					<!--edit-->
+					<span @click="modifica(item.id)" class="icons">
+						<!--v-if: se completato scompare-->
+						<i v-if="item.status === false" class="fas fa-pencil-alt"></i>
+					</span>
+					<!--completato-->
+					<span @click="completato(item.id)" class="icons">
+						<!--v-if: se completato scompare-->
+						<i v-if="item.status === false" class="fas fa-check"></i>
+					</span>
+					<!--elimina-->
+					<span @click="elimina(item.id)" class="icons">
+						<!--v-if: se completato compare-->
+						<i v-if="item.status === true" class="far fa-trash-alt"></i>
+					</span>
 				</li>
 			</ul>
+			<!-- input nuovo todo-->
 			<div class="input">
 				<input type="text" v-model="add" @keyup.enter="aggiunta" placeholder="Aggiungi elemento">
 			</div>
