@@ -2,46 +2,55 @@ var app = new Vue ({
 	el: '#root',
 	data: {
 		add: '',
+		editTodo: '',
 		todo: [
 			{
 				id: 1,
 				titolo: "Nutrire i gatti",
-				status: false
+				status: false,
+				flag: false
 			},
 			{
 				id: 2,
 				titolo: "Lavare i piatti",
-				status: false
+				status: false,
+				flag: false
 			},
 			{
 				id: 3,
 				titolo: "Pagare ENEL",
-				status: false
+				status: false,
+				flag: false
 			},
 			{
 				id: 4,
 				titolo: "Mandare mail",
-				status: false
+				status: false,
+				flag: false
 			},
 			{
 				id: 5,
 				titolo: "Corso Boolean",
-				status: false
+				status: false,
+				flag: false
 			},
 			{
 				id: 6,
 				titolo: "Fare la spesa",
-				status: false
+				status: false,
+				flag: false
 			},
 			{
 				id: 7,
 				titolo: "Chiamare Giulia",
-				status: false
+				status: false,
+				flag: false
 			},
 			{
 				id: 8,
 				titolo: "Ritirare Raccomandata",
-				status: false
+				status: false,
+				flag: false
 			}
 		]
 	},
@@ -68,6 +77,31 @@ var app = new Vue ({
 			this.todo.forEach(function (item) {
 				if (item.id === index) {
 					item.status = true;
+				}
+			})
+			console.log(this.todo);
+		},
+		modifica: function (index) {
+			this.todo.forEach(function (item) {
+				if (item.id === index){
+					if (item.flag === false){
+						item.flag = true;
+					} else {
+						item.flag = false;
+					}
+				}
+			})
+		},
+		edit: function (index) {
+			console.log(this.editTodo, index)
+			let tempTxt = this.editTodo;
+			this.editTodo = ''
+			this.todo.forEach(function (item) {
+				if (item.id === index){
+					if (tempTxt != ''){
+						item.titolo = tempTxt;
+						item.flag = false;
+					}
 				}
 			})
 			console.log(this.todo);

@@ -42,7 +42,7 @@ i[class*="fa-"] {
 	padding-right: 10px;
 	font-size: 22px;
 }
-.to-do ul li span:nth-child(2) {
+.to-do ul li span:nth-child(3) {
 	margin-left: auto;
 }
 .input input {
@@ -56,3 +56,7 @@ i[class*="fa-"] {
 	text-decoration: line-through;
 	font-style: italic;
 }
+.nascosto {
+	display: none;
+}
+
