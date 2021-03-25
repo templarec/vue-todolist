@@ -45,3 +45,10 @@ i[class*="fa-"] {
 .to-do ul li span:nth-child(2) {
 	margin-left: auto;
 }
+.input input {
+	margin-top: 30px;
+	width: 100%;
+	outline: none;
+	font-size: 22px;
+
+}

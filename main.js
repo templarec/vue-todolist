@@ -1,6 +1,7 @@
 var app = new Vue ({
 	el: '#root',
 	data: {
+		add: '',
 		todo: [
 			{
 				id: 1,
@@ -48,6 +49,24 @@ var app = new Vue ({
 
 	},
 	methods: {
-
+		aggiunta: function () {
+			let tempObj = {
+				id: getNewIdTodo(),
+				titolo: this.add,
+				status: false
+			}
+			this.todo.push(tempObj);
+			this.add = '';
+			console.log(this.todo);
+		}
 	}
 });
+function getNewIdTodo() {
+	let maxId = app.todo[0].id;
+	app.todo.forEach((item) => {
+		if (item.id > maxId){
+			maxId = item.id;
+		}
+	})
+	return maxId + 1;
+}
