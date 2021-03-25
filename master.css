@@ -9,14 +9,20 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background-color: #280047;
 }
 .to-do {
 	width: 400px;
 	display: flex;
 	flex-direction: column;
 	border-radius: 20px;
-	background-color: #93ca74;
+	background-color: #ece76f;
 	padding: 30px;
+	box-shadow: 4px 4px 4px #a270cd;
+}
+.to-do h2 {
+	text-align: center;
+	text-transform: uppercase;
 }
 .to-do ul {
 	display: flex;
@@ -28,29 +34,38 @@
 	list-style: none;
 	display: flex;
 	justify-items: flex-start;
-	border-bottom: 1px solid #c6e3b5;
+	border-bottom: 1px solid #676524;
 	margin: 5px 0;
 
 }
 i[class*="fa-"] {
 	font-size: 22px;
 }
-.to-do ul li span > .fas {
+.to-do ul li span > i {
 	padding-right: 3px;
 }
 .to-do ul li span:nth-child(1) {
 	padding-right: 10px;
 	font-size: 22px;
 }
-.to-do ul li span:nth-child(3) {
+#pencil {
 	margin-left: auto;
+}
+.to-do ul li span > input {
+	font-size: 20px;
+	outline: none;
+	border-radius: 7px;
+	text-indent: 5px;
 }
 .input input {
 	margin-top: 30px;
 	width: 100%;
 	outline: none;
 	font-size: 22px;
+	border-radius: 10px;
+	text-indent: 5px;
 }
+
 .completato {
 	color: #999;
 	text-decoration: line-through;

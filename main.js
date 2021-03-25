@@ -67,7 +67,8 @@ var app = new Vue ({
 			let tempObj = {									//oggetto temporaneo da inserire
 				id: getNewIdTodo(),							//invoca funzione che genera id successivo all'ultimo
 				titolo: this.add,
-				status: false
+				status: false,
+				flag: false
 			}
 			this.todo.push(tempObj);						//push in array
 			this.add = '';									//flush dell'input di inserimento
@@ -94,7 +95,7 @@ var app = new Vue ({
 			})
 		},
 		edit: function (index) {							//metodo per keyup inserimento modifica
-			console.log(this.editTodo, index)
+			this.$refs.inputEdit.focus();
 			let tempTxt = this.editTodo;					//salvo valore di input
 			this.editTodo = ''
 			this.todo.forEach(function (item) {			//cerco id da modificare
@@ -105,26 +106,25 @@ var app = new Vue ({
 					}
 				}
 			})
-			console.log(this.todo);
 		},
 		elimina: function (index) {										//metodo eliminazione todo
 			let rmvTemp = this.todo.findIndex( i => i.id === index);    //cerco la posizione indice dell'id ricevuto
 			this.todo.splice(rmvTemp,1);						//cancello 1 elemento a partire dall'indice trovato
-
-
-
-
-
 		}
 	}
 });
 //funzione che cerca id più alto e restituisce id successivo da poter usare per nuovo oggetto
 function getNewIdTodo() {
-	let maxId = app.todo[0].id;
-	app.todo.forEach((item) => {
-		if (item.id > maxId){
-			maxId = item.id;
-		}
-	})
+	if(this.todo){
+		let maxId = app.todo[0].id;
+		app.todo.forEach((item) => {
+			if (item.id > maxId){
+				maxId = item.id;
+			}
+		})
+	} else {
+		maxId = 0;
+	}
+
 	return maxId + 1;
 }
